@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { GroupControlComponent } from './group-control/group-control.component';
 import { ConditionFormComponent } from './condition-form/condition-form.component';
+import { Condition2FormComponent } from './condition2-form/condition2-form.component';
 import { ActionButtonsBarComponent } from './action-buttons-bar/action-buttons-bar.component';
 
 
