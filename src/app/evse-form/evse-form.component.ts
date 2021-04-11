@@ -16,26 +16,26 @@ import {
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 
-export interface Condition2FormComponentData {
+export interface EvseFormComponentData {
   variable: any;
 }
 
 @Component({
-  selector: "app-condition2-form",
-  templateUrl: "./condition2-form.component.html",
-  styleUrls: ["./condition2-form.component.css"],
+  selector: "app-evse-form",
+  templateUrl: "./evse-form.component.html",
+  styleUrls: ["./evse-form.component.css"],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => Condition2FormComponent),
+      useExisting: forwardRef(() => EvseFormComponent),
       multi: true
     }
   ]
 })
-export class Condition2FormComponent
+export class EvseFormComponent
   implements ControlValueAccessor, OnDestroy, OnInit {
   @Input()
-  formLabel: string | number = "Condition2";
+  formLabel: string | number = "Evse";
 
   @Output()
   remove: EventEmitter<void> = new EventEmitter<void>();
@@ -43,7 +43,7 @@ export class Condition2FormComponent
   _form: FormGroup;
 
   private _onChange: (
-    value: Condition2FormComponentData | null | undefined
+    value: EvseFormComponentData | null | undefined
   ) => void;
 
   private _destroy$: Subject<void> = new Subject<void>();
@@ -63,7 +63,7 @@ export class Condition2FormComponent
     }
   }
 
-  writeValue(value: Condition2FormComponentData): void {
+  writeValue(value: EvseFormComponentData): void {
     if (!value) {
       return;
     }
@@ -71,7 +71,7 @@ export class Condition2FormComponent
     this._form.patchValue(value);
   }
   registerOnChange(
-    fn: (v: Condition2FormComponentData | null | undefined) => void
+    fn: (v: EvseFormComponentData | null | undefined) => void
   ): void {
     this._onChange = fn;
   }

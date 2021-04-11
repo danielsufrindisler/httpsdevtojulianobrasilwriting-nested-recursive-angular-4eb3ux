@@ -17,10 +17,12 @@ import {
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 import { ConditionFormComponentData } from "../condition-form/condition-form.component";
+import { EvseFormComponentData } from "../evse-form/evse-form.component";
 
 export interface GroupControlComponentData {
   conjunctor: null;
   conditions: ConditionFormComponentData[];
+  evses: EvseFormComponentData[];
   groups: GroupControlComponentData[];
 }
 
@@ -95,8 +97,16 @@ export class GroupControlComponent
     this._conditionsFormArray.removeAt(index);
   }
 
+  _deleteEvse(index: number) {
+    this._evsesFormArray.removeAt(index);
+  }
+
   _addCondition() {
     this._conditionsFormArray.push(this._fb.control({ variable: null }));
+  }
+
+   _addEvse() {
+    this._evsesFormArray.push(this._fb.control({ variable: null }));
   }
 
   _deleteGroupFromArray(index: number) {
@@ -107,13 +117,18 @@ export class GroupControlComponent
     this._groupsFormArray.push(
       this._fb.control({
         conditions: [],
-        groups: []
+        groups: [],
+        evses: []
       })
     );
   }
 
   get _conditionsFormArray(): FormArray {
     return this._form.get("conditions") as FormArray;
+  }
+
+  get _evsesFormArray(): FormArray {
+    return this._form.get("evses") as FormArray;
   }
 
   get _groupsFormArray(): FormArray {
@@ -124,11 +139,12 @@ export class GroupControlComponent
     this._form = this._fb.group({
       conjunctor: null,
       conditions: this._fb.array([]),
+      evses: this._fb.array([]),
       groups: this._fb.array([])
     });
 
     // add one condition on the next tick, after the form creation
-    setTimeout(() => this._addCondition());
+    //setTimeout(() => this._addCondition());
   }
 
   private _setupObservables() {

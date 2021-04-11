@@ -5,7 +5,9 @@
       
       <app-action-buttons-bar (remove)="remove.emit()"
                               (addGroup)="_addGroup()"
-                              (addCondition)="_addCondition()">
+                              (addCondition)="_addCondition()"
+                              (addEvse)="_addEvse()">
+
       </app-action-buttons-bar>
 
 			<ng-container formArrayName="conditions">
@@ -14,6 +16,14 @@
                             [formControlName]="j" 
                             [formLabel]="'Condition ' + (j+1)">
         </app-condition-form>
+			</ng-container>
+
+	    <ng-container formArrayName="evses">
+        <app-evse-form *ngFor="let c of _evsesFormArray?.controls; index as k" 
+                            (remove)="_deleteEvse(k)"
+                            [formControlName]="k" 
+                            [formLabel]="'EVSE ' + (k+1)">
+        </app-evse-form>
 			</ng-container>
 
 			<ng-container formArrayName="groups">

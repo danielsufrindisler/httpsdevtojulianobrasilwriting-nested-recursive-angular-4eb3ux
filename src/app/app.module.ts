@@ -6,13 +6,13 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { GroupControlComponent } from './group-control/group-control.component';
 import { ConditionFormComponent } from './condition-form/condition-form.component';
-import { Condition2FormComponent } from './condition2-form/condition2-form.component';
+import { EvseFormComponent } from './evse-form/evse-form.component';
 import { ActionButtonsBarComponent } from './action-buttons-bar/action-buttons-bar.component';
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule],
-  declarations: [ AppComponent, HelloComponent, GroupControlComponent, ConditionFormComponent, ActionButtonsBarComponent ],
+  declarations: [ AppComponent, HelloComponent, GroupControlComponent, ConditionFormComponent, EvseFormComponent, ActionButtonsBarComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

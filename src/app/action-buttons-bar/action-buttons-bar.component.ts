@@ -16,5 +16,5 @@ export class ActionButtonsBarComponent {
   addCondition: EventEmitter<void> = new EventEmitter<void>();
 
   @Output()
-  addCondition2: EventEmitter<void> = new EventEmitter<void>();
+  addEvse: EventEmitter<void> = new EventEmitter<void>();
 }
