@@ -7,7 +7,7 @@
     add condition
   </button>
 
-  <button type="button" (click)="addEvse.emit()">
+  <button type="button" [disabled]="isDisabled()" (click)="addEvse.emit()">
     add EVSE
   </button>
 

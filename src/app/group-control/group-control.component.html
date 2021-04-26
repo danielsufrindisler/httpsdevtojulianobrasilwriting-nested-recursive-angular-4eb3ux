@@ -2,13 +2,24 @@
 	<fieldset>
 		<legend>{{formLabel}}</legend>
 		<div>
-      
-      <app-action-buttons-bar (remove)="remove.emit()"
-                              (addGroup)="_addGroup()"
-                              (addCondition)="_addCondition()"
-                              (addEvse)="_addEvse()">
+      <div class="container">
+	      <button type="button" (click)="_addGroup()">
+          add nested group
+        </button>
 
-      </app-action-buttons-bar>
+	      <button type="button" (click)="_addCondition()">
+          add condition
+        </button>
+
+        <button type="button" [disabled]="isDisabled()" (click)="_addEvse()">
+          add EVSE
+        </button>
+
+	      <button type="button" (click)="remove.emit()">
+          delete group
+        </button>
+      </div>
+     
 
 			<ng-container formArrayName="conditions">
         <app-condition-form *ngFor="let c of _conditionsFormArray?.controls; index as j" 

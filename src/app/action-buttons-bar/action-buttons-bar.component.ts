@@ -5,7 +5,7 @@ import { Component, OnInit, EventEmitter, Output } from "@angular/core";
   templateUrl: "./action-buttons-bar.component.html",
   styleUrls: ["./action-buttons-bar.component.css"]
 })
-export class ActionButtonsBarComponent {
+export class ActionButtonsBarComponent implements OnInit{
   @Output()
   remove: EventEmitter<void> = new EventEmitter<void>();
 
@@ -17,4 +17,10 @@ export class ActionButtonsBarComponent {
 
   @Output()
   addEvse: EventEmitter<void> = new EventEmitter<void>();
+
+  ngOnInit() {}
+
+  isDisabled() {
+    return false
+  }
 }

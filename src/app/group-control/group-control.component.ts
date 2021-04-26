@@ -123,6 +123,10 @@ export class GroupControlComponent
     );
   }
 
+ isDisabled() {
+    return (this._evsesFormArray.length != 0)
+    || (this._conditionsFormArray.length != 0);
+ }
   get _conditionsFormArray(): FormArray {
     return this._form.get("conditions") as FormArray;
   }
