@@ -19,11 +19,11 @@ import { takeUntil } from "rxjs/operators";
 import { ConditionFormComponentData } from "../condition-form/condition-form.component";
 import { EvseFormComponentData } from "../evse-form/evse-form.component";
 
-export interface GroupControlComponentData {
+export interface PanelControlComponentData {
   conjunctor: null;
   conditions: ConditionFormComponentData[];
   evses: EvseFormComponentData[];
-  groups: GroupControlComponentData[];
+  groups: PanelControlComponentData[];
 }
 
 @Component({
@@ -33,12 +33,12 @@ export interface GroupControlComponentData {
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => GroupControlComponent),
+      useExisting: forwardRef(() => PanelControlComponent),
       multi: true
     }
   ]
 })
-export class GroupControlComponent
+export class PanelControlComponent
   implements ControlValueAccessor, OnDestroy, OnInit {
   @Input()
   formLabel: string | number = "Group";
@@ -49,7 +49,7 @@ export class GroupControlComponent
   _form: FormGroup;
 
   private _onChange: (
-    value: GroupControlComponentData | null | undefined
+    value: PanelControlComponentData | null | undefined
   ) => void;
 
   private _destroy$: Subject<void> = new Subject<void>();
@@ -69,7 +69,7 @@ export class GroupControlComponent
     }
   }
 
-  writeValue(value: GroupControlComponentData | null | undefined): void {
+  writeValue(value: PanelControlComponentData | null | undefined): void {
     if (!value) {
       return;
     }
@@ -78,7 +78,7 @@ export class GroupControlComponent
   }
 
   registerOnChange(
-    fn: (value: GroupControlComponentData | null | undefined) => void
+    fn: (value: PanelControlComponentData | null | undefined) => void
   ): void {
     this._onChange = fn;
   }
