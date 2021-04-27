@@ -27,9 +27,9 @@ export interface PanelControlComponentData {
 }
 
 @Component({
-  selector: "app-group-control",
-  templateUrl: "./group-control.component.html",
-  styleUrls: ["./group-control.component.css"],
+  selector: "app-panel-control",
+  templateUrl: "./panel-control.component.html",
+  styleUrls: ["./panel-control.component.css"],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
